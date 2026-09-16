@@ -578,21 +578,6 @@ Oops!
 User not found
 ```
 
-## FreeCodeCamp
-
-This project was built as part of the **freeCodeCamp APIs and Microservices** curriculum.
-
-The project implements the required Exercise Tracker API functionality, including:
-
-- Creating users
-- Getting all users
-- Getting a specific user
-- Adding exercises
-- Viewing exercise logs
-- Date filtering
-- Result limits
-- Optional exercise dates
-
 ## License
 
 This project is licensed under the ISC License.
