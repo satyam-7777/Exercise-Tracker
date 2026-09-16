@@ -1,0 +1,46 @@
+.activity-section {
+  width: min(700px, calc(100% - 30px));
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.activity-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.activity-ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-ul li {
+  margin: 0;
+}
+
+.activity-btn {
+  width: 100%;
+  padding: 14px 10px;
+  border: 1px solid #cbd5e1;
+  background-color: white;
+  color: #334155;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.activity-ul li:first-child .activity-btn {
+  border-radius: 8px 0 0 8px;
+}
+
+.activity-ul li:last-child .activity-btn {
+  border-radius: 0 8px 8px 0;
+}
+
+.activity-btn.active {
+  background-color: #334155;
+  color: white;
+  border-color: #334155;
+}

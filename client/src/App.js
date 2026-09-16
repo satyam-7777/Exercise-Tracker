@@ -1,0 +1,72 @@
+import { useState } from "react";
+
+import { ActivitySection } from "./components/ActivitySection/ActivitySection";
+import { CreateUserCard } from "./components/CreateUserCard";
+import { AddExerciseCard } from "./components/AddExerciseCard";
+import { ViewExerciseLogCard } from "./components/ViewExerciseLogCard";
+import { ResultSection } from "./components/ResultSection/ResultSection";
+import { NavBar } from "./components/NavBar";
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <NavBar />
+//       <ActivitySelection />
+//       <main className="main-container">
+//         <CreateUserCard result={result} error={error} setResult={setResult} setError={setError} />
+//         <AddExerciseCard result={result} error={error} setResult={setResult} setError={setError} />
+//         <ViewExerciseLogCard
+//           result={result}
+//           error={error}
+//           setResult={setResult}
+//           setError={setError}
+//         />
+//         <ResultSection result={result} error={error} />
+//       </main>
+//     </div>
+//   );
+// }
+
+export default function App() {
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+  const [currentActivity, setCurrentActivity] = useState("create-user");
+
+  return (
+    <div className="App">
+      <NavBar />
+
+      <main className="main-container">
+        <ActivitySection
+          setCurrentActivity={setCurrentActivity}
+          setResult={setResult}
+          setError={setError}
+        />
+
+        {currentActivity === "create-user" && (
+          <CreateUserCard result={result} error={error} setResult={setResult} setError={setError} />
+        )}
+
+        {currentActivity === "add-exercise" && (
+          <AddExerciseCard
+            result={result}
+            error={error}
+            setResult={setResult}
+            setError={setError}
+          />
+        )}
+
+        {currentActivity === "view-logs" && (
+          <ViewExerciseLogCard
+            result={result}
+            error={error}
+            setResult={setResult}
+            setError={setError}
+          />
+        )}
+
+        <ResultSection result={result} error={error} />
+      </main>
+    </div>
+  );
+}
