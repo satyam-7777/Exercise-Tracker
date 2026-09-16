@@ -44,3 +44,9 @@
   color: white;
   border-color: #334155;
 }
+
+@media (max-width: 600px) {
+  .activity-ul {
+    grid-template-columns: 1fr;
+  }
+}
