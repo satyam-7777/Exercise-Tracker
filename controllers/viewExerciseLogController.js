@@ -38,7 +38,7 @@ const getExerciseLog = async (req, res, next) => {
 
     const exercises = await query;
 
-    const log = exercises.map((exercise) => ({
+    const exerciseLogs = exercises.map((exercise) => ({
       description: exercise.description,
       duration: exercise.duration,
       date: exercise.date.toDateString(),
@@ -46,9 +46,9 @@ const getExerciseLog = async (req, res, next) => {
 
     res.status(200).json({
       username: user.username,
-      count: log.length,
+      count: exerciseLogs.length,
       _id: user._id,
-      log,
+      log: exerciseLogs,
     });
   } catch (err) {
     next(err);

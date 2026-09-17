@@ -1,4 +1,4 @@
-import { getResultItems } from "./ResultItems";
+import { getResultItems } from "../../utils/ResutItem";
 
 export function ResultSection({ result, error, filters }) {
   let resultItems;

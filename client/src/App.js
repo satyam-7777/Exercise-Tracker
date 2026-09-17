@@ -7,26 +7,6 @@ import { ViewExerciseLogCard } from "./components/ViewExerciseLogCard";
 import { ResultSection } from "./components/ResultSection/ResultSection";
 import { NavBar } from "./components/NavBar";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <NavBar />
-//       <ActivitySelection />
-//       <main className="main-container">
-//         <CreateUserCard result={result} error={error} setResult={setResult} setError={setError} />
-//         <AddExerciseCard result={result} error={error} setResult={setResult} setError={setError} />
-//         <ViewExerciseLogCard
-//           result={result}
-//           error={error}
-//           setResult={setResult}
-//           setError={setError}
-//         />
-//         <ResultSection result={result} error={error} />
-//       </main>
-//     </div>
-//   );
-// }
-
 export default function App() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
