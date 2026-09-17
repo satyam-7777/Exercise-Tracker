@@ -1,18 +1,26 @@
 import { getResultItems } from "./ResultItems";
 
-export function ResultSection({ result, error }) {
+export function ResultSection({ result, error, filters }) {
   let resultItems;
 
   if (!result && !error) return null;
 
   if (result) {
-    resultItems = getResultItems(result);
+    resultItems = getResultItems(result, filters);
   }
 
   return (
     <section className="result-section">
       <div className="section-card result">
-        <h4 className="result-title">{error ? "Oops!" : "Result"}</h4>
+        <h4 className="result-title">
+          {error
+            ? "Oops!"
+            : result.log
+              ? "View Exercise Logs"
+              : result.description
+                ? "Exercise Details"
+                : "User Details"}
+        </h4>
 
         {error ? (
           <p className="error-msg">{error}</p>

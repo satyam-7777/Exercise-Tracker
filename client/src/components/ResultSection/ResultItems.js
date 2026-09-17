@@ -1,79 +1,13 @@
-// export function getResultItems(result) {
-//   if (result.log) {
-//     return [
-//       {
-//         id: "username",
-//         label: "Username",
-//         value: result.username,
-//       },
-//       {
-//         id: "user-id",
-//         label: "User ID",
-//         value: result._id,
-//       },
-//       {
-//         id: "count",
-//         label: "Exercise Count",
-//         value: result.count,
-//       },
-//       {
-//         id: "log",
-//         label: "Exercise Log",
-//         value: result.log
-//           .map(
-//             (exercise) => `${exercise.description} — ${exercise.duration} min — ${exercise.date}`,
-//           )
-//           .join("\n"),
-//       },
-//     ];
-//   }
-
-//   if (result.description) {
-//     return [
-//       {
-//         id: "username",
-//         label: "Username",
-//         value: result.username,
-//       },
-//       {
-//         id: "user-id",
-//         label: "User ID",
-//         value: result._id,
-//       },
-//       {
-//         id: "description",
-//         label: "Description",
-//         value: result.description,
-//       },
-//       {
-//         id: "duration",
-//         label: "Duration",
-//         value: `${result.duration} minutes`,
-//       },
-//       {
-//         id: "date",
-//         label: "Date",
-//         value: result.date,
-//       },
-//     ];
-//   }
-
-//   return [
-//     {
-//       id: "username",
-//       label: "Username",
-//       value: result.username,
-//     },
-//     {
-//       id: "user-id",
-//       label: "User ID",
-//       value: result._id,
-//     },
-//   ];
-// }
-
-export function getResultItems(result) {
+export function getResultItems(result, filters = {}) {
   if (result.log) {
+    const params = new URLSearchParams();
+
+    if (filters.from) params.append("from", filters.from);
+    if (filters.to) params.append("to", filters.to);
+    if (filters.limit) params.append("limit", filters.limit);
+
+    const queryString = params.toString();
+
     return [
       {
         id: "username",
@@ -103,7 +37,7 @@ export function getResultItems(result) {
         id: "exercise-log",
         label: "Exercise Log",
         value: "View Exercise Log JSON",
-        href: `/api/users/${result._id}/logs`,
+        href: `/api/users/${result._id}/logs${queryString ? `?${queryString}` : ""}`,
       },
     ];
   }

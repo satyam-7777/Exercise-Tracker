@@ -30,6 +30,7 @@ import { NavBar } from "./components/NavBar";
 export default function App() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({});
   const [currentActivity, setCurrentActivity] = useState("create-user");
 
   return (
@@ -62,10 +63,11 @@ export default function App() {
             error={error}
             setResult={setResult}
             setError={setError}
+            setFilters={setFilters}
           />
         )}
 
-        <ResultSection result={result} error={error} />
+        <ResultSection result={result} error={error} filters={filters} />
       </main>
     </div>
   );

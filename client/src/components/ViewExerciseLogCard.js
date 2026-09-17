@@ -38,7 +38,7 @@ const initialState = {
   limit: "",
 };
 
-export function ViewExerciseLogCard({ result, error, setResult, setError }) {
+export function ViewExerciseLogCard({ result, error, setResult, setError, setFilters }) {
   const [state, setState] = useState(initialState);
 
   const [loading, setLoading] = useState(false);
@@ -90,6 +90,7 @@ export function ViewExerciseLogCard({ result, error, setResult, setError }) {
       }
 
       setResult(data);
+      setFilters({ from, to, limit });
     } catch (err) {
       setError(err.message);
     } finally {
